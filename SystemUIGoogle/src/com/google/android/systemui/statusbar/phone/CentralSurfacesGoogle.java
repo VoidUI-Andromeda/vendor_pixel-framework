@@ -150,6 +150,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Provider;
 
+// Custom Features
+import com.android.systemui.model.SysUiState;
+
 import dagger.Lazy;
 
 @SysUISingleton
@@ -283,7 +286,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
             TunerService tunerService,
-            BurnInProtectionController burnInProtectionController) {
+            BurnInProtectionController burnInProtectionController,
+            SysUiState sysUiState) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarInitializer, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -316,7 +320,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, lightRevealScrim, alternateBouncerInteractor,
-                userTracker, fingerprintManager, activityStarter, tunerService, burnInProtectionController);
+                userTracker, fingerprintManager, activityStarter, tunerService, burnInProtectionController,
+                sysUiState);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
